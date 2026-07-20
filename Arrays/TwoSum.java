@@ -36,3 +36,26 @@ public static int[] hashMap(int[] arr, int target) {
   }
   return new int[]{};
 }}
+//TwoSum Using ArrayList on sorted subarray Time:O(n) Space:O(1)
+public ArrayList<Integer> twoSum(int[] arr, int target) {
+        ArrayList<Integer> list = new ArrayList<>();
+        int left = 0;
+        int right = arr.length-1;
+        while(left < right) {
+            int sum = arr[left] + arr[right];
+            if(sum == target) {
+                list.add(left+1);
+                list.add(right+1);
+                return list;
+            }
+            else if(sum<target){
+                left++;
+            }
+            else {
+                right--;
+            }
+        }
+        list.add(-1);
+        list.add(-1);
+        return list;
+    }
