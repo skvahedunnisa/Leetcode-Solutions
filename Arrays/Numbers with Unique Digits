@@ -1,0 +1,45 @@
+class Solution {
+  public static int countUniqueDigitNumbers(int n1, int n2) {
+    int count = 0;
+    for(int i=n1;i<=n2;i++) {
+      HashSet<Integer> set = new HashSet<>();
+      boolean unique = true;
+      int num = i;
+      while(num > 0) {
+        int digit = num % 10;
+        if(set.contains(digit)) {
+          unique = false;
+          break;
+        }
+        set.add(digit);
+        num = num / 10;
+      }
+      if(unique) {
+        count++;
+      }
+    }
+    return count;
+  }
+}
+
+
+Boolean Frequency Array is also used for this problem(Memory Efficient)
+
+int count = 0;
+for(int i = n1;i<=n2;i++) {
+  boolean[] seen = new boolean[10];
+  boolean unique = true;
+  int num = i;
+  while(num > 0) {
+    int digit = num % 10;
+    if(seen[digit]) {
+      unique = false;
+      break;
+    }
+    seen[digit] = true;
+    num = num / 10;
+  }
+  if(unique) {
+    count++;
+  }
+}
