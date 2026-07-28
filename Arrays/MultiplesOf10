@@ -1,0 +1,20 @@
+Multiples of 10 at the End
+
+class Solution {
+    public static int[] solvemoveMultiplesOfTen(int n, int[] arr) {
+        int k = 0;
+        int[] result = new int[n];
+        for(int i=0;i<n;i++) {
+            if(arr[i]%10 != 0) {
+                result[k] = arr[i];
+                k++;
+            }
+        }
+        for(int i=0;i<n;i++) {
+            if(arr[i] % 10== 0) {
+                result[k++] = arr[i];
+            }
+        }
+        return result;
+    }
+}          
