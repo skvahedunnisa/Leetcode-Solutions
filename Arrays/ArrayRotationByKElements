@@ -1,0 +1,17 @@
+Array Rotation by k elements
+
+public class Solution{
+  public static int[] ArrayRotaion(int n, int[] arr, int k) {  
+    n = arr.length;
+    k = k%n;
+    int[] result = new int[n];
+    int j=0;
+    for(int i=k;i<n;i++) {
+      result[j++] = arr[i];
+    }
+    for(int i=0;i<=k-1;i++) {
+      result[j++] = arr[i];
+    }
+    return result;
+  }
+}
