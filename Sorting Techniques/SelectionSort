@@ -1,0 +1,42 @@
+*Selection sort selects the minimum element from the unssorted array repeatedly and swaps it with first element
+Algorithm :
+For an array of size n
+1. Start from index 0.
+2. Assume the current index contains the minimum.
+3. Search the remaining unsorted elements.
+4. Find the actual minimum element.
+5. Swap it with the element at the current index.
+6. Move to the next index.
+7. Repeat until the array is sorted.
+
+Program:
+public static void selectionSort(int[] nums) {
+  int n = nums.length;
+  for(int i=0;i<n;i++) {
+    int minIndex = i;
+    for(int j=i+1;j<n;j++) {
+      if(nums[j] < nums[minIndex]) {
+        minIndex = j;
+      }
+    }
+    int temp  = nums[i];
+    nums[i] = nums[minIndex];
+    nums[minIndex] = temp;
+  }
+  return nums;
+ }
+
+
+Given an array of integers nums, sort the array in non-decreasing order using the selection sort algorithm and return the sorted array.
+A sorted array in non-decreasing order is an array where each element is greater than or equal to all previous elements in the array.
+
+
+Example 1
+
+Input: nums = [7, 4, 1, 5, 3]
+
+Output: [1, 3, 4, 5, 7]
+
+Explanation: 1 <= 3 <= 4 <= 5 <= 7.
+
+Thus the array is sorted in non-decreasing order.
