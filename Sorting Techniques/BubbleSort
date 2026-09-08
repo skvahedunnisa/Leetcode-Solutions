@@ -1,0 +1,60 @@
+Bubble Sort repeatedly compares two adjacent elements and swaps them if they are in the wrong order
+Algorithm:
+For ascending order:
+
+Start from the first element.
+Compare two adjacent elements.
+If the left element is greater than the right element, swap them.
+Continue comparing adjacent elements until you reach the end.
+After one complete pass, the largest element moves to the end.
+Repeat the same process for the remaining unsorted part.
+Stop after n - 1 passes, or earlier if no swaps happen.
+
+public static void bubbleSort(int[] arr) {
+
+    int n = arr.length;
+
+    for (int i = 0; i < n - 1; i++) {
+
+        for (int j = 0; j < n - 1 - i; j++) {
+
+            if (arr[j] > arr[j + 1]) {
+
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+Complexity:
+Best:    O(n²)
+Average: O(n²)
+Worst:   O(n²)
+Space:   O(1)
+
+
+Optimized solution:
+boolean swapped = false;
+
+for (int i = 0; i < n - 1; i++) {
+
+    swapped = false;
+
+    for (int j = 0; j < n - 1 - i; j++) {
+
+        if (arr[j] > arr[j + 1]) {
+            int temp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+
+            swapped = true;
+        }
+    }
+
+    if (!swapped) {
+        break;
+    }
+}
+Complexity: BestCase : O(n)
